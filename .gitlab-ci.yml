@@ -1,0 +1,13 @@
+demo_job_1:
+  tags:
+    - ci
+  script:
+    - echo "Hello, world"
+
+build:
+  tags:
+    - ci
+  stage: build
+  script:
+    - make docker-build-toolchain
+    - sudo make docker-build-all
