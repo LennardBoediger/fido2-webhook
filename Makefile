@@ -35,7 +35,7 @@ CFLAGS += -DAES256=1  -DSOLO_EXPERIMENTAL=1 -DDEBUG_LEVEL=1
 
 name = main
 
-.PHONY: all $(LIBCBOR) $(LIBSOLO) black blackcheck cppcheck wink fido2-test clean full-clean travis test clean version
+.PHONY: all $(LIBCBOR) $(LIBSOLO) black blackcheck cppcheck wink fido2-test clean full-clean  ci travis test clean version
 all: main
 
 tinycbor/Makefile crypto/tiny-AES-c/aes.c:
@@ -108,10 +108,15 @@ clean:
 full-clean: clean
 	rm -rf venv
 
+ci:
+	git submodule update --init --recursive
+	$(MAKE) docker-build-toolchain
+	$(MAKE) docker-build-all
+
 travis:
 	$(MAKE) test VENV=". ../../venv/bin/activate;"
-	#$(MAKE) test-docker
-	-$(MAKE) black
+	$(MAKE) test-docker
+	#-$(MAKE) black
 
 .PHONY: simulation
 simulation: main

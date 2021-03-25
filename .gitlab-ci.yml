@@ -1,8 +1,12 @@
+#  .pre
+#  build
+#  test
+#  deploy
+#  .post
+
 build:
   tags:
     - ci
   stage: build
   script:
-    - git submodule update --init --recursive
-    - sudo make docker-build-toolchain
-    - sudo make docker-build-all
+    - sudo make ci
