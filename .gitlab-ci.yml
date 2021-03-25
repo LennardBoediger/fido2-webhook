@@ -17,7 +17,6 @@ build-simulation:
   stage: build
   script:
   - sudo make all
-  - sudo ./main
 
 
 build:
@@ -30,3 +29,9 @@ build:
       paths:
       - builds/*
 
+#test-simulation:
+#  tags:
+#    - ci
+#  stage: test
+#  script:
+#    - sudo ./main
