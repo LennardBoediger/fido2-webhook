@@ -4,6 +4,17 @@
 #  deploy
 #  .post
 
+
+simulation:
+  tags:
+    - ci
+  stage: build
+  script:
+  - git clone --recurse-submodules https://github.com//Nitrokey/nitrokey-fido2-firmware
+  - cd nitrokey-fido2-firmware
+  - make all
+
+
 build:
   tags:
     - ci

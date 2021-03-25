@@ -5,6 +5,11 @@
     <mapping directory="$PROJECT_DIR$/crypto/cifra" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/crypto/micro-ecc" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/crypto/tiny-AES-c" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/nitrokey-fido2-firmware" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/nitrokey-fido2-firmware/crypto/cifra" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/nitrokey-fido2-firmware/crypto/micro-ecc" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/nitrokey-fido2-firmware/crypto/tiny-AES-c" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/nitrokey-fido2-firmware/tinycbor" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/tinycbor" vcs="Git" />
   </component>
 </project>
