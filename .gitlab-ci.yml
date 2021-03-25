@@ -4,5 +4,5 @@ build:
   stage: build
   script:
     - git submodule update --init --recursive
-    - make docker-build-toolchain
-    - make docker-build-all
+    - sudo make docker-build-toolchain
+    - sudo make docker-build-all
