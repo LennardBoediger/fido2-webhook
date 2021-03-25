@@ -17,6 +17,7 @@ build-simulation:
   stage: build
   script:
   - sudo make all
+  - sudo ./main
 
 
 build:
