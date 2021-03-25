@@ -9,5 +9,5 @@ build:
     - ci
   stage: build
   script:
-    - make docker-build-toolchain
+    - sudo make docker-build-toolchain
     - sudo make docker-build-all
