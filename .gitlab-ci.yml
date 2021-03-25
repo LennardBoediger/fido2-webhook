@@ -10,21 +10,22 @@ pipline_test:
     - ci
   script:
     - echo "Pipline Works!"
-#build-simulation:
-#  tags:
-#    - ci
-#  stage: build
-#  script:
-#  - sudo make all
 
-
-build:
+build-simulation:
   tags:
     - ci
-  stage: test
+  stage: build
   script:
-    - sudo make ci
-  artifacts:
-      paths:
-      - builds/*
+  - sudo make all
+
+
+#build:
+#  tags:
+#    - ci
+#  stage: test
+#  script:
+#    - sudo make ci
+#  artifacts:
+#      paths:
+#      - builds/*
 
