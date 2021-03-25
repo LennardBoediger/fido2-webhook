@@ -9,7 +9,7 @@ build-simulation:
     - ci
   stage: build
   script:
-  - git clone --recurse-submodules https://github.com//Nitrokey/nitrokey-fido2-firmware
+  #- git clone --recurse-submodules https://github.com//Nitrokey/nitrokey-fido2-firmware
   - cd nitrokey-fido2-firmware
   - sudo make all
 
