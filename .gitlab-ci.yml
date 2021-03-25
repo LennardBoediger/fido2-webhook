@@ -4,8 +4,7 @@
 #  deploy
 #  .post
 
-
-simulation:
+build-simulation:
   tags:
     - ci
   stage: build
@@ -25,4 +24,3 @@ build:
       paths:
       - builds/*
 
-  # CI_BUILDS_DIR The top-level directory where builds are executed. ?
