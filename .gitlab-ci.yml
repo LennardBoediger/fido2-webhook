@@ -12,6 +12,6 @@ build:
     - sudo make ci
   artifacts:
       paths:
-      - CI_COMMIT_SHA.hex
+      - builds/*
 
   # CI_BUILDS_DIR The top-level directory where builds are executed. ?
