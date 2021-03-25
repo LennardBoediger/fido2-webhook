@@ -19,13 +19,13 @@ build-simulation:
   - sudo make all
 
 
-#build:
-#  tags:
-#    - ci
-#  stage: test
-#  script:
-#    - sudo make ci
-#  artifacts:
-#      paths:
-#      - builds/*
+build:
+  tags:
+    - ci
+  stage: test
+  script:
+    - sudo make ci
+  artifacts:
+      paths:
+      - builds/*
 
