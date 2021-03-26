@@ -4,12 +4,12 @@
 #  deploy
 #  .post
 
-pipline_test:
+runner_healthy:
   stage: .pre
   tags:
     - ci
   script:
-    - echo "Pipline Works!"
+    - echo "Runner Works!"
 
 #build-simulation:
 #  tags:
