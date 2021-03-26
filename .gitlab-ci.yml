@@ -11,12 +11,12 @@ pipline_test:
   script:
     - echo "Pipline Works!"
 
-build-simulation:
-  tags:
-    - ci
-  stage: build
-  script:
-  - sudo make all
+#build-simulation:
+#  tags:
+#    - ci
+#  stage: build
+#  script:
+#  - sudo make all
 
 
 build:
