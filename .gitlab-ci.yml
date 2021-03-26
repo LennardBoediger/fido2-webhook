@@ -8,6 +8,10 @@ runner_healthy:
   stage: .pre
   tags:
     - ci
+  before_script:
+    - sudo make clean
+    - sudo rm builds/debug/*
+    - sudo rm builds/release/*
   script:
     - echo "Runner Works!"
 
