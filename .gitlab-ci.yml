@@ -25,8 +25,8 @@ build:
   stage: test
   before_script:
     - sudo make clean
-    - rm builds/debug/*
-    - rm builds/release/*
+    - sudo rm builds/debug/*
+    - sudo rm builds/release/*
   script:
     - sudo make ci
   artifacts:
