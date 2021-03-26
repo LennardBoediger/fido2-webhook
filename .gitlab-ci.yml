@@ -23,6 +23,8 @@ build:
   tags:
     - ci
   stage: test
+  before_script:
+    - sudo make clean
   script:
     - sudo make ci
   artifacts:
