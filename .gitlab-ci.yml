@@ -16,8 +16,8 @@ build:
   before_script:
     #- apt-get update && apt-get install make
     #- apt-get install -y gcc
-    - apk update && apk add -y git
-    - apk add -y make
+    - apk update && apk add git
+    - apk add make
   script:
     - make ci
   variables:
