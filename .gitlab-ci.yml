@@ -3,29 +3,49 @@
 #  test
 #  deploy
 #  .post
-image: docker:stable
+image: docker:latest
+
 services:
-  - docker:dind
+  - name: docker:dind
+    entrypoint: [ "env", "-u", "DOCKER_HOST" ]
+    command: [ "dockerd-entrypoint.sh" ]
+
+
+build:
+  stage: build
+  before_script:
+    #- apt-get update && apt-get install make
+    #- apt-get install -y gcc
+    - apt-get update && apt-get install -y git
+  script:
+    - make ci
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+  artifacts:
+    paths:
+    - builds/*
 
 #runner_healthy:
 #  stage: .pre
 #  script:
 #    - echo "Runner Works!"
 
-build:
-  stage: test
-  before_script:
-    - apt-get update && apt-get install make
-    - apt-get install -y gcc
-    - apt-get install -y git
-  script:
-    - make ci
- #   - sudo make clean
- #   - sudo rm builds/debug/*
- #   - sudo rm builds/release/*
-  artifacts:
-      paths:
-      - builds/*
+#build:
+#  stage: test
+#  before_script:
+#    #- apt-get update && apt-get install make
+#    #- apt-get install -y gcc
+#    - apt-get update && apt-get install -y git
+#  script:
+#    - make ci
+# #   - sudo make clean
+# #   - sudo rm builds/debug/*
+# #   - sudo rm builds/release/*
+#  artifacts:
+#      paths:
+#      - builds/*
 #build-simulation:
 #  tags:
 #    - ci
