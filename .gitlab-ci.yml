@@ -6,36 +6,29 @@
 
 runner_healthy:
   stage: .pre
-  tags:
-    - ci
-  before_script:
-    - sudo make clean
-    - sudo rm builds/debug/*
-    - sudo rm builds/release/*
   script:
     - echo "Runner Works!"
 
+build:
+  stage: test
+  before_script:
+    - apt-get update && apt-get install make
+    - apt-get install -y gcc
+  script:
+    - sudo make ci
+ #   - sudo make clean
+ #   - sudo rm builds/debug/*
+ #   - sudo rm builds/release/*
+  artifacts:
+      paths:
+      - builds/*
+      -
 #build-simulation:
 #  tags:
 #    - ci
 #  stage: build
 #  script:
 #  - sudo make all
-
-
-build:
-  tags:
-    - ci
-  stage: test
-  before_script:
-    - sudo make clean
-    - sudo rm builds/debug/*
-    - sudo rm builds/release/*
-  script:
-    - sudo make ci
-  artifacts:
-      paths:
-      - builds/*
 
 #test-simulation:
 #  tags:
