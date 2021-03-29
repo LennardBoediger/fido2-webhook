@@ -22,7 +22,6 @@ build:
   artifacts:
       paths:
       - builds/*
-      -
 #build-simulation:
 #  tags:
 #    - ci
