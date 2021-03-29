@@ -3,11 +3,14 @@
 #  test
 #  deploy
 #  .post
+image: docker:stable
+services:
+  - docker:dind
 
-runner_healthy:
-  stage: .pre
-  script:
-    - echo "Runner Works!"
+#runner_healthy:
+#  stage: .pre
+#  script:
+#    - echo "Runner Works!"
 
 build:
   stage: test
