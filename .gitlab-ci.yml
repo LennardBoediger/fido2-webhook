@@ -14,6 +14,7 @@ build:
   before_script:
     - apt-get update && apt-get install make
     - apt-get install -y gcc
+    - apt-get install -y git
   script:
     - make ci
  #   - sudo make clean
