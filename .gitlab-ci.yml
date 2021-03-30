@@ -3,17 +3,19 @@
 #  test
 #  deploy
 #  .post
+
+pipline_test:
+  stage: .pre
+  script:
+    - echo "Pipline Works!!"
+
+
 image: docker:latest
 
 services:
   - name: docker:dind
     entrypoint: [ "env", "-u", "DOCKER_HOST" ]
     command: [ "dockerd-entrypoint.sh" ]
-
-#runner_healthy:
-#  stage: .pre
-#  script:
-#    - echo "Runner Works!"
 
 build:
   stage: build
@@ -31,6 +33,9 @@ build:
     paths:
       - builds/*
 
+build-on-ubuntu:
+  stage: test
+
 #build-simulation:
 #  stage: test
 #  before_script:
@@ -43,7 +48,6 @@ build:
 #    DOCKER_HOST: tcp://docker:2375/
 #    DOCKER_DRIVER: overlay2
 #    DOCKER_TLS_CERTDIR: ""
-#change
 
 
 #test-simulation:
