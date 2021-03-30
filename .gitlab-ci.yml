@@ -4,10 +4,10 @@
 #  deploy
 #  .post
 
-pipline_test:
-  stage: .pre
-  script:
-    - echo "Pipline Works!!!"
+#pipline_test:
+#  stage: .pre
+#  script:
+#    - echo "Pipline Works!!!"
 
 
 image: docker:latest
