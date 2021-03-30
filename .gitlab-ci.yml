@@ -29,7 +29,7 @@ build:
     DOCKER_TLS_CERTDIR: ""
   artifacts:
     paths:
-    - builds/*
+      - builds/*
 
 #build-simulation:
 #  stage: test
