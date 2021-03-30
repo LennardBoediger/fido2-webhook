@@ -33,8 +33,6 @@ build:
     paths:
       - builds/*
 
-build-on-ubuntu:
-  stage: test
 
 #build-simulation:
 #  stage: test
