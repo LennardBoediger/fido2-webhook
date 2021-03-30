@@ -10,16 +10,17 @@ services:
     entrypoint: [ "env", "-u", "DOCKER_HOST" ]
     command: [ "dockerd-entrypoint.sh" ]
 
+#runner_healthy:
+#  stage: .pre
+#  script:
+#    - echo "Runner Works!"
 
 build:
   stage: build
   before_script:
-    #- apt-get update && apt-get install make
-    #- apt-get install -y gcc
     - apk update && apk add git
     - apk add make
     - apk add python3
-   # - apk add py3-pip ????+?????
   script:
     - make ci
   variables:
@@ -30,31 +31,16 @@ build:
     paths:
     - builds/*
 
-#runner_healthy:
-#  stage: .pre
-#  script:
-#    - echo "Runner Works!"
-
-#build:
-#  stage: test
-#  before_script:
-#    #- apt-get update && apt-get install make
-#    #- apt-get install -y gcc
-#    - apt-get update && apt-get install -y git
-#  script:
-#    - make ci
-# #   - sudo make clean
-# #   - sudo rm builds/debug/*
-# #   - sudo rm builds/release/*
-#  artifacts:
-#      paths:
-#      - builds/*
 #build-simulation:
-#  tags:
-#    - ci
-#  stage: build
+#  stage: test
 #  script:
 #  - sudo make all
+#  variables:
+#    DOCKER_HOST: tcp://docker:2375/
+#    DOCKER_DRIVER: overlay2
+#    DOCKER_TLS_CERTDIR: ""
+
+
 
 #test-simulation:
 #  tags:
