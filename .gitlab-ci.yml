@@ -37,6 +37,8 @@ build-simulation:
     - apk update && apk add git
     - apk add make
     - apk add python3
+    - git submodule update --init --recursive
+    - ls
     - make all
   variables:
     DOCKER_HOST: tcp://docker:2375/
