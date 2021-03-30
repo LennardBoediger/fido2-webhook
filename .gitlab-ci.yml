@@ -3,7 +3,7 @@
 #  test
 #  deploy
 #  .post
-image: docker:latest
+image: docker:20.10.5
 
 services:
   - name: docker:dind
