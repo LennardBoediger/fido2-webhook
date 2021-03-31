@@ -24,8 +24,9 @@ build:
     - apk add make
     - apk add python3
   script:
-    - git pull --tags
-    - git pull master --tags
+    - git branch
+    - git remote -v
+    - git pull origin master --tags
     - make ci
   variables:
     DOCKER_HOST: tcp://docker:2375/
