@@ -1,9 +1,8 @@
 DOCKER_TOOLCHAIN_IMAGE := nitrokey/nitrokey-fido2-firmware-build
 
 docker-build-toolchain:
-	@echo look-here @echo $(shell git describe)
-	@echo look-here tags
-	@echo $(shell git describe --tags)
+	@echo look-here $(shell git describe) !
+	@echo look-here tags $(shell git describe --tags) !!
 	docker build -t $(DOCKER_TOOLCHAIN_IMAGE) .
 	docker tag $(DOCKER_TOOLCHAIN_IMAGE):latest $(DOCKER_TOOLCHAIN_IMAGE):${SOLO_VERSION}
 	docker tag $(DOCKER_TOOLCHAIN_IMAGE):latest $(DOCKER_TOOLCHAIN_IMAGE):${SOLO_VERSION_MAJ}
