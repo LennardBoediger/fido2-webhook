@@ -110,6 +110,7 @@ full-clean: clean
 	rm -rf venv
 
 ci:
+	git pull --tags
 	git submodule update --init --recursive
 	$(MAKE) docker-build-toolchain
 	$(MAKE) docker-build-all
