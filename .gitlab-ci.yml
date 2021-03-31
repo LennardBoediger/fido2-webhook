@@ -23,6 +23,7 @@ build:
     - apk update && apk add git
     - apk add make
     - apk add python3
+    - git pull --tags
   script:
     - make ci
   variables:
