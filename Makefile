@@ -111,6 +111,7 @@ full-clean: clean
 
 ci:
 	git submodule update --init --recursive
+	git describe
 	$(MAKE) docker-build-toolchain
 	$(MAKE) docker-build-all
 
