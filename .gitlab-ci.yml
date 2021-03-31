@@ -24,7 +24,6 @@ build:
     - apk add make
     - apk add python3
   script:
-    - git describe
     - git checkout master
     - git branch
     - git remote -v
