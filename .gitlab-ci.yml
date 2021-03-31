@@ -28,7 +28,7 @@ build:
     #- git branch
     #- git remote -v
     #- git pull --tags --rebase
-    - git describe
+    #- git describe
     #- git pull origin master --tags
     - make ci
   variables:
