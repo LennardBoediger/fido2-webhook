@@ -13,8 +13,6 @@
 
 
 build:
-  tags:
-    - dind
   image: docker:latest
   services:
     - name: docker:dind
