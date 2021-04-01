@@ -23,7 +23,7 @@ build:
     - apk update && apk add git
     - apk add make
     - apk add python3
-    - apk add curl
+    - apk add cat
   script:
     #- git checkout master
     #- git branch
