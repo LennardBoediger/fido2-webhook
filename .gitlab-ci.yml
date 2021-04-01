@@ -25,6 +25,7 @@ build:
     - apk add make
     - apk add python3
   script:
+    - sleep 1h
     - make ci
   variables:
     GIT_STRATEGY: clone
