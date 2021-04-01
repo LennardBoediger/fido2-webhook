@@ -15,7 +15,7 @@ src = pc/device.c pc/main.c
 obj = $(src:.c=.o)
 
 SOLO_VERSION_FULL:=2.4.0.nitrokey-105-g0318201#$(shell cat STABLE_VERSION)
-VERSION_FULL_RAW:=$(shell cat STABLE_VERSION)
+VERSION_FULL_RAW:=2.4.0.nitrokey-105-g0318201#$(shell cat STABLE_VERSION)
 
 LIBCBOR = tinycbor/lib/libtinycbor.a
 LIBSOLO = fido2/libsolo.a
