@@ -1,5 +1,5 @@
 
-SOLO_VERSION_FULL?=$(shell git describe --tags)
+SOLO_VERSION_FULL?=$(shell cat STABLE_VERSION)
 SOLO_VERSION:=$(shell python3 -c 'print("$(SOLO_VERSION_FULL)".split("-")[0])')
 SOLO_VERSION_MAJ:=$(shell python3 -c 'print("$(SOLO_VERSION)".split(".")[0])')
 SOLO_VERSION_MIN:=$(shell python3 -c 'print("$(SOLO_VERSION)".split(".")[1])')
