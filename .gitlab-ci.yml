@@ -24,12 +24,6 @@ build:
     - apk add make
     - apk add python3
   script:
-    #- git checkout master
-    #- git branch
-    #- git remote -v
-    #- git pull --tags --rebase
-    #- git describe --tags
-    #- git pull origin master --tags
     - make ci
   variables:
     GIT_STRATEGY: clone
