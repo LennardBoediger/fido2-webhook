@@ -1,5 +1,5 @@
 
-SOLO_VERSION_FULL?=2.4.0.nitrokey
+SOLO_VERSION_FULL=2.4.0.nitrokey
 SOLO_VERSION:=$(shell python3 -c 'print("$(SOLO_VERSION_FULL)".split("-")[0])')
 SOLO_VERSION_MAJ:=$(shell python3 -c 'print("$(SOLO_VERSION)".split(".")[0])')
 SOLO_VERSION_MIN:=$(shell python3 -c 'print("$(SOLO_VERSION)".split(".")[1])')

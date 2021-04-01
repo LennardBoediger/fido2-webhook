@@ -17,7 +17,7 @@ USB_LIB := lib/usbd/usbd_cdc.c lib/usbd/usbd_cdc_if.c lib/usbd/usbd_composite.c 
 	   lib/usbd/usbd_ccid.c
 
 VERSION:=$(shell git describe --abbrev=0 )
-VERSION_FULL_RAW:=$(shell git describe)
+VERSION_FULL_RAW:=2.4.0.nitrokey
 VERSION_FULL:=$(shell python3 -c 'print("$(VERSION_FULL_RAW)".strip(".nitrokey")) if ".nitrokey" in "$(VERSION_FULL_RAW)" else exit(1)')
 VERSION_FULL:=$(if $(VERSION_FULL),$(VERSION_FULL),$(error Invalid version tag - no '.nitrokey' suffix))
 
