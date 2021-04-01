@@ -14,7 +14,8 @@ src = pc/device.c pc/main.c
 
 obj = $(src:.c=.o)
 
-#SOLO_VERSION_FULL := $(shell cat STABLE_VERSION)
+SOLO_VERSION_FULL:=$(shell cat STABLE_VERSION)
+VERSION_FULL_RAW:=$(shell cat STABLE_VERSION)
 
 LIBCBOR = tinycbor/lib/libtinycbor.a
 LIBSOLO = fido2/libsolo.a
