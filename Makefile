@@ -1,4 +1,5 @@
-SOLO_VERSION_FULL:=$(shell cat STABLE_VERSION)
+#SOLO_VERSION_FULL:=2.4.0.nitrokey-105-g0318201#$(shell cat STABLE_VERSION)
+#VERSION_FULL_RAW:=2.4.0.nitrokey-105-g0318201#$(shell cat STABLE_VERSION)
 include fido2/version.mk
 
 #define uECC_arch_other 0
@@ -37,7 +38,7 @@ CFLAGS += -DAES256=1  -DSOLO_EXPERIMENTAL=1 -DDEBUG_LEVEL=1
 
 name = main
 
-.PHONY: all $(LIBCBOR) $(LIBSOLO) black blackcheck cppcheck wink fido2-test clean full-clean test clean version
+.PHONY: all $(LIBCBOR) $(LIBSOLO) black blackcheck cppcheck wink fido2-test clean full-clean ci travis test clean version
 all: main
 
 
@@ -119,7 +120,7 @@ ci:
 #travis:
 #	$(MAKE) test VENV=". ../../venv/bin/activate;"
 #	$(MAKE) test-docker
-#	#-$(MAKE) black
+	#-$(MAKE) black
 
 .PHONY: simulation
 simulation: main
