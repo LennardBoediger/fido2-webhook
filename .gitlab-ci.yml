@@ -25,7 +25,7 @@ build:
     - apk add make
     - apk add python3
   script:
-    - sleep 1h
+    #- sleep 1h
     - make ci
   variables:
     GIT_STRATEGY: clone
@@ -38,6 +38,9 @@ build:
 
 
 #build-simulation:
+# image: ubuntu:latest
+# tags:
+#    - uind
 #  stage: test
 #  before_script:
 #    - apk update && apk add git
@@ -45,10 +48,6 @@ build:
 #    - apk add python3
 #  script:
 #  - make all
-#  variables:
-#    DOCKER_HOST: tcp://docker:2375/
-#    DOCKER_DRIVER: overlay2
-#    DOCKER_TLS_CERTDIR: ""
 
 
 #test-simulation:
