@@ -1,6 +1,5 @@
-	#SOLO_VERSION_FULL:=2.4.0.nitrokey-105-g0318201#$(shell cat STABLE_VERSION)
-	#VERSION_FULL_RAW:=2.4.0.nitrokey-105-g0318201#$(shell cat STABLE_VERSION)
-	include fido2/version.mk
+SOLO_VERSION_FULL:=$(shell cat STABLE_VERSION)
+include fido2/version.mk
 
 #define uECC_arch_other 0
 #define uECC_x86        1
