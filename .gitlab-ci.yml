@@ -47,8 +47,9 @@ build-simulation:
     - apt install -y make
     - apt install -y gcc
     - apt install -y python3
+    - git submodule update --init --recursive
   script:
-  - make all
+    - make all
 
 
 #test-simulation:
