@@ -45,6 +45,7 @@ build-simulation:
   before_script:
     - apt update -y && apt install -y git
     - apt install -y make
+    - apt install -y gcc
     - apt install -y python3
   script:
   - make all
