@@ -41,7 +41,7 @@ build-simulation:
   image: ubuntu:latest
   tags:
     - uind
-  stage: test
+  stage: build
   before_script:
     - apt update -y && apt install -y git
     - apt install -y make
