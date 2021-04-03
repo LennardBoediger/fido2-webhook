@@ -43,9 +43,9 @@ build-simulation:
     - uind
   stage: test
   before_script:
-    - apt update && apt install git
-    - apt install make
-    - apt install python3
+    - apt update -y && apt install -y git
+    - apt install -y make
+    - apt install -y python3
   script:
   - make all
 
