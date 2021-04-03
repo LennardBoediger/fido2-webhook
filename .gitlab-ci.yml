@@ -37,17 +37,17 @@ build:
       - builds/*
 
 
-#build-simulation:
-# image: ubuntu:latest
-# tags:
-#    - uind
-#  stage: test
-#  before_script:
-#    - apk update && apk add git
-#    - apk add make
-#    - apk add python3
-#  script:
-#  - make all
+build-simulation:
+  image: ubuntu:latest
+  tags:
+    - uind
+  stage: test
+  before_script:
+    - apk update && apk add git
+    - apk add make
+    - apk add python3
+  script:
+  - make all
 
 
 #test-simulation:
