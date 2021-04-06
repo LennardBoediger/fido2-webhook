@@ -15,7 +15,7 @@ build:
     - apk add make
     - apk add python3
   script:
-    #- sleep 1h
+    - sleep 1h
     - make ci
   variables:
     DOCKER_HOST: tcp://docker:2375/
