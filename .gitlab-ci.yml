@@ -3,7 +3,7 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 build:
-  image: docker:latest
+  image: docker:20.10.5
   services:
     - name: docker:dind
       entrypoint: [ "env", "-u", "DOCKER_HOST" ]
@@ -18,16 +18,16 @@ build:
     #- sleep 1h
     - make ci
   variables:
-    DOCKER_HOST: tcp://docker:2375/
-    DOCKER_DRIVER: overlay2
-    DOCKER_TLS_CERTDIR: ""
+    DOCKER_HOST: tcp://docker:2375/ #just to fix dind issue
+    DOCKER_DRIVER: overlay2         #just to fix dind issue
+    DOCKER_TLS_CERTDIR: ""          #just to fix dind issue
   artifacts:
     paths:
       - builds/*
 
 
 build-simulation:
-  image: ubuntu:latest
+  image: ubuntu:20.04
   tags:
     - uind
   stage: build
