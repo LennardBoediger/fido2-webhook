@@ -41,8 +41,12 @@ build-simulation:
     - make all
 
 deploy_prod:
+  image: ubuntu:20.04
+  tags:
+    - uind
   stage: deploy
   script:
+    - apt update -y && apt install -y git && apt install -y bash
     - echo "add commands to push to github"
     - sleep 13h
   environment:
