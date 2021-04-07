@@ -47,6 +47,7 @@ deploy_prod:
   stage: deploy
   script:
     - apt-get update -y
+    - apt-get install -y git
     - apt-get install -y curl
     - apt-get install -y jq
     - apt-get install -y zip
