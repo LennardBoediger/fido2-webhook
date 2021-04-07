@@ -8,7 +8,7 @@ b="${version#*.*.}"
 a=$(echo $a | awk -F. -v OFS=. 'NF==1{print ++$NF}; NF>1{$NF=sprintf("%0*d", length($NF), ($NF+1)); print}')
 version=$a.$b
 
-upload_url=$(curl -s -H "Authorization: token $GITHUB_TOKEN" -d '{"tag_name": "$version", "name":"$version","body":"this is a test release"}' "https://api.github.com/repos/$repo/releases" | jq -r '.upload_url')
+upload_url=$(curl -s -H "Authorization: token $GITHUB_TOKEN" -d '{"tag_name": "'"$version"'", "name":"'"$version"'","body":"this is a test release"}' "https://api.github.com/repos/$repo/releases" | jq -r '.upload_url')
 
 upload_url="${upload_url%\{*}"
 

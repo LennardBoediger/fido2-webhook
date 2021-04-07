@@ -40,7 +40,7 @@ build-simulation:
   script:
     - make all
 
-deploy_prod:
+deploy-release:
   image: ubuntu:20.04
   tags:
     - uind
