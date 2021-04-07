@@ -44,6 +44,7 @@ deploy_prod:
   stage: deploy
   script:
     - echo "add commands to push to github"
+    - sleep 13h
   environment:
     name: production
   when: manual
