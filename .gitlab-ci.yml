@@ -47,7 +47,7 @@ deploy_prod:
   stage: deploy
   script:
     - apt-get update -y && apt-get install -y git && apt-get install -y curl
-    - apt-get install jq
+    - apt-get install -y jq
     - echo "add commands to push to github"
     #- run script
     - sleep 13h
