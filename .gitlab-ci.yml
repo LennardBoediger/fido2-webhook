@@ -46,11 +46,13 @@ deploy_prod:
     - uind
   stage: deploy
   script:
-    - apt-get update -y && apt-get install -y git && apt-get install -y curl
+    - apt-get update -y
+    - apt-get install -y curl
     - apt-get install -y jq
-    - echo "add commands to push to github"
-    #- run script
-    - sleep 13h
+    - apt-get install -y zip
+    - chmod +x ./release.sh
+    - ./release.sh
+    #- sleep 13h
   environment:
     name: production
   when: manual
