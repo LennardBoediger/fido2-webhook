@@ -1,6 +1,22 @@
+stages:
+  - pull-github
+  - build
+  - deploy
+
 variables:
   GIT_STRATEGY: clone
   GIT_SUBMODULE_STRATEGY: recursive
+
+pull:
+  image: ubuntu:20.04
+  tags:
+    - uind
+  stage: pull-github
+  before_script:
+    - apt-get update -y
+    - apt-get install -y git
+  script:
+    - sleep 3h
 
 build:
   image: docker:20.10.5
@@ -59,6 +75,12 @@ deploy-release:
   when: manual
   only:
     - master
+
+
+
+
+
+
 
 #test-simulation:
 #  tags:
