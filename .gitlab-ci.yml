@@ -16,7 +16,12 @@ pull:
     - apt-get update -y
     - apt-get install -y git
   script:
-    - sleep 3h
+    - git remote rename origin gitlab-origin
+    - git remote add github-origin https://github.com/LennardBoediger/fido2-webhook.git
+    - git fetch github-origin 
+    - git remote set-url gitlab-origin https://oauth2:$GITLAB_REPO_KEY@git.dotplex.com/lennard.boediger/ci-test-fido2.git
+    - git merge github-origin/master
+    - git push --all gitlab-origin
 
 build:
   image: docker:20.10.5
