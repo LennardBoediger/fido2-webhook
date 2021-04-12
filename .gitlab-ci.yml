@@ -31,6 +31,7 @@ pull:
     - git push secondary --all
 
 debug-pipe:
+  #pups
   only:
     - tags
   image: ubuntu:20.04
@@ -39,7 +40,6 @@ debug-pipe:
   stage: debug
   script:
     - echo works
-
 build:
   rules:
     - if: $CI_PIPELINE_SOURCE == "push" 
