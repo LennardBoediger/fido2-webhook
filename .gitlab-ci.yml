@@ -1,7 +1,3 @@
-workflow:
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "trigger"'  # run only on trigger (not on push etc.)
-      when: always
 
 stages:
   - pull-github
@@ -13,6 +9,8 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 pull:
+    rules:
+    - if: '$CI_PIPELINE_SOURCE == "trigger"'
   image: ubuntu:20.04
   tags:
     - uind
@@ -39,6 +37,8 @@ pull:
     #- git push --all gitlab-origin
 
 build:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
   image: docker:20.10.5
   services:
     - name: docker:dind
@@ -63,6 +63,8 @@ build:
 
 
 build-simulation:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
   image: ubuntu:20.04
   tags:
     - uind
@@ -77,6 +79,8 @@ build-simulation:
     - make all
 
 deploy-release:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'
   image: ubuntu:20.04
   tags:
     - uind
