@@ -90,7 +90,6 @@ deploy-release:
     #- sleep 13h
   environment:
     name: production
-  when: manual
 
 
 
