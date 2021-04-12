@@ -71,8 +71,6 @@ build-simulation:
     - make all
 
 deploy-release:
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "push"'
   image: ubuntu:20.04
   tags:
     - uind
