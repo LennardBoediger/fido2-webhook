@@ -24,7 +24,7 @@ pull:
     - mkdir git-magic
     - cd git-magic
     - git clone --mirror --recurse-submodules $GITHUB_REPO
-    - cd fido2-webhook.git/
+    - cd fido2-webhook
     - git remote add --mirror=fetch secondary $GITLAB_REPO
     - git remote set-url secondary https://oauth2:$GITLAB_REPO_KEY@$GITLAB_REPO
     - git fetch origin
