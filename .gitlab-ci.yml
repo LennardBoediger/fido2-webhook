@@ -1,6 +1,7 @@
 
 stages:
   - pull-github
+  - debug
   - build
   - deploy
 
@@ -28,6 +29,16 @@ pull:
     - git fetch origin
     - git push secondary --tags
     - git push secondary --all
+
+debug-pipe:
+  only:
+    - tags
+  image: ubuntu:20.04
+  tags:
+    - uind
+  stage: debug
+  script:
+    - echo works
 
 build:
   rules:
