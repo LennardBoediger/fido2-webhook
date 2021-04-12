@@ -1,3 +1,8 @@
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "trigger"'  # run only on trigger (not on push etc.)
+      when: always
+
 stages:
   - pull-github
   - build
