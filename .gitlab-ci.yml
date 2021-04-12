@@ -75,6 +75,7 @@ build-simulation:
 deploy-release:
   rules:
     - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master"
+      when: manual
   image: ubuntu:20.04
   tags:
     - uind
