@@ -1,7 +1,6 @@
 
 stages:
   - pull-github
-  - debug
   - build
   - deploy
 
@@ -30,16 +29,6 @@ pull:
     - git push secondary --tags
     - git push secondary --all
 
-debug-pipe:
-  #pups
-  only:
-    - tags
-  image: ubuntu:20.04
-  tags:
-    - uind
-  stage: debug
-  script:
-    - echo works
 build:
   rules:
     - if: $CI_PIPELINE_SOURCE == "push" 
@@ -85,9 +74,9 @@ build-simulation:
     - make all
 
 deploy-release:
-  rules:
-    - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "master"
-      when: manual
+  when: manual
+  only:
+    - tags
   image: ubuntu:20.04
   tags:
     - uind
