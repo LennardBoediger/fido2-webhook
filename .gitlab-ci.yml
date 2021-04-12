@@ -7,8 +7,6 @@ stages:
 variables:
   GIT_STRATEGY: clone
   GIT_SUBMODULE_STRATEGY: recursive
-  GITHUB_REPO: github.com/LennardBoediger/fido2-webhook.git
-  GITLAB_REPO: git.dotplex.com/lennard.boediger/ci-test-fido2.git
 
 pull:
   rules:
@@ -23,10 +21,10 @@ pull:
   script:
     - mkdir git-magic
     - cd git-magic
-    - git clone --mirror --recurse-submodules https://$GITHUB_REPO
-    - cd fido2-webhook
-    - git remote add --mirror=fetch secondary https://$GITLAB_REPO
-    - git remote set-url secondary https://oauth2:$GITLAB_REPO_KEY@$GITLAB_REPO
+    - git clone --mirror --recurse-submodules https://github.com/LennardBoediger/fido2-webhook.git
+    - cd fido2-webhook.git/
+    - git remote add --mirror=fetch secondary https://git.dotplex.com/lennard.boediger/ci-test-fido2.git
+    - git remote set-url secondary https://oauth2:$GITLAB_REPO_KEY@git.dotplex.com/lennard.boediger/ci-test-fido2.git
     - git fetch origin
     - git push secondary --tags
     - git push secondary --all
