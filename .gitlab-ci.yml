@@ -9,7 +9,7 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 pull:
-    rules:
+  rules:
     - if: '$CI_PIPELINE_SOURCE == "trigger"'
   image: ubuntu:20.04
   tags:
@@ -27,14 +27,6 @@ pull:
     - git remote set-url secondary https://oauth2:$GITLAB_REPO_KEY@git.dotplex.com/lennard.boediger/ci-test-fido2.git
     - git fetch origin
     - git push secondary --all
-    # this worked once ? i dont't get it
-    #- git remote rename origin gitlab-origin
-    #- git remote add github-origin https://github.com/LennardBoediger/fido2-webhook.git
-    #- git fetch github-origin 
-    #- git remote set-url gitlab-origin https://oauth2:$GITLAB_REPO_KEY@git.dotplex.com/lennard.boediger/ci-test-fido2.git
-    #- git checkout gitlab-origin/master
-    #- git merge github-origin/master ?? do i have to do that 
-    #- git push --all gitlab-origin
 
 build:
   rules:
