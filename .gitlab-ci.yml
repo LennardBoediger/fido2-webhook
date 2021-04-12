@@ -30,7 +30,7 @@ pull:
 
 build:
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "push"'
+    - if: $CI_PIPELINE_SOURCE == "push" 
   image: docker:20.10.5
   services:
     - name: docker:dind
@@ -38,7 +38,8 @@ build:
       command: [ "dockerd-entrypoint.sh" ]
   stage: build
   before_script:
-    - apk update && apk add git
+    - apk update
+    - apk add git
     - apk add bash
     - apk add make
     - apk add python3
@@ -62,7 +63,8 @@ build-simulation:
     - uind
   stage: build
   before_script:
-    - apt update -y && apt install -y git
+    - apt update -y
+    - apt install -y git
     - apt install -y make
     - apt install -y gcc
     - apt install -y python3
@@ -71,6 +73,8 @@ build-simulation:
     - make all
 
 deploy-release:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == "main"
   image: ubuntu:20.04
   tags:
     - uind
@@ -87,8 +91,6 @@ deploy-release:
   environment:
     name: production
   when: manual
-  only:
-    - master
 
 
 
