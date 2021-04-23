@@ -2,11 +2,12 @@
 stages:
   - pull-github
   - build
+  - cleanup
   - deploy
 
 variables:
-  GIT_STRATEGY: clone
-  GIT_DEPTH: 0
+  GIT_STRATEGY: clone			#This seems to have no effect also set in webinterface
+  GIT_DEPTH: 0					#This seems to have no effect also set in webinterface
   GIT_SUBMODULE_STRATEGY: recursive
 
 pull:
@@ -32,34 +33,30 @@ pull:
 
 build:
   rules:
-    - if: $CI_PIPELINE_SOURCE == "push" 
-  image: docker:20.10.5
-  services:
-    - name: docker:dind
-      entrypoint: [ "env", "-u", "DOCKER_HOST" ]
-      command: [ "dockerd-entrypoint.sh" ]
+    - if: '$CI_PIPELINE_SOURCE == "push"'  #run this job only on push event
+  tags:
+    - dinvm
   stage: build
-  before_script:
-    - apk update
-    - apk add git
-    - apk add bash
-    - apk add make
-    - apk add python3
   script:
-    #- sleep 1h
     - make ci
-  variables:
-    DOCKER_HOST: tcp://docker:2375/ #just to fix dind issue
-    DOCKER_DRIVER: overlay2         #just to fix dind issue
-    DOCKER_TLS_CERTDIR: ""          #just to fix dind issue
   artifacts:
     paths:
       - builds/*
 
+delete-vm:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "push"'  #run this job only on push event
+  tags:
+    - shell
+  stage: cleanup
+  script:
+    - vboxmanage unregistervm ubuntu-runner-runner-hszxezQU-concurrent-0 --delete
+
+
 
 build-simulation:
   rules:
-    - if: '$CI_PIPELINE_SOURCE == "push"'
+    - if: '$CI_PIPELINE_SOURCE == "push"'  #run this job only on push event
   image: ubuntu:20.04
   tags:
     - uind
@@ -75,9 +72,9 @@ build-simulation:
     - make all
 
 deploy-release:
-  when: manual
+  when: manual   #run this job only on manual user interaction in the webinterface
   only:
-    - tags
+    - tags        #show this job only when tags are pushed
   image: ubuntu:20.04
   tags:
     - uind

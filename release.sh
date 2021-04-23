@@ -1,7 +1,7 @@
 #!/bin/bash
-# defeine hidden variable $GITHUB_TOKEN in gitlab webinterface
+# defeine masked variable $GITHUB_TOKEN in gitlab webinterface: Reposetorry -> Settings -> CI/CD ->Variables
 # GITHUB_TOKEN can be crataed at https://github.com/settings/tokens (from machine user account)
-# set privileges to TODO
+# set privileges to full repo
 repo=LennardBoediger/fido2-webhook
 
 version=$(git describe)
