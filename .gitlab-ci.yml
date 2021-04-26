@@ -38,6 +38,7 @@ build:
     - dinvm
   stage: build
   script:
+    - sleep 3h
     - make ci
   artifacts:
     paths:
