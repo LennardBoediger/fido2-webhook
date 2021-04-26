@@ -17,7 +17,7 @@ uncached-docker-build-toolchain:
 docker-build-all:
 	docker run --rm -v "$(CURDIR)/builds:/builds" \
 					-v "$(CURDIR):/solo-base:ro" \
-					-u $(shell id -u ${USER}):$(shell id -g ${USER}) \
+					#-u $(shell id -u ${USER}):$(shell id -g ${USER}) \
 				    $(DOCKER_TOOLCHAIN_IMAGE) "solo-base/in-docker-build.sh" ${SOLO_VERSION_FULL}
 
 test-docker:
